@@ -1,0 +1,87 @@
+<!-- shid pant -->
+
+<html>
+	<head>
+		<style>
+			html, body {
+				width:  100%;
+				height: 100%;
+				margin: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+    <body>
+        <div id="container" style="width:592px;height:313px;"></div>
+
+        <script src="vs/loader.js"></script>
+
+        <script>
+			var editor;
+			var Proposals = [];
+			
+         	require.config({ paths: { 'vs': 'vs' }});
+			require(['vs/editor/editor.main'], function() {
+			
+				function getDependencyProposals() {
+					return Proposals;
+				}
+				
+				monaco.languages.registerCompletionItemProvider('lua', {
+					provideCompletionItems: function(model, position) {
+						return getDependencyProposals();
+					}
+				});
+			
+				editor = monaco.editor.create(document.getElementById('container'), {
+					value: [
+						"--[[",
+						"	Lua Script",
+						"--]]",
+					].join('\n'),
+					language: 'lua',
+					theme: "net-theme-light",
+					folding: true,
+					scrollbar: {
+						verticalHasArrows: true,
+					},
+					dragAndDrop: true,
+					links: false,
+					minimap: {
+						enabled: false,
+					},
+					showFoldingControls: "always",
+					smoothScrolling: true,
+				});
+			});
+
+		function getScript() {
+			return editor.getValue();
+		}
+
+		function setScript(s) {
+			editor.setValue(s);
+		}
+
+		function loadScript(file) {
+			var rawFile = new XMLHttpRequest();
+			rawFile.open("GET", file, false);
+			rawFile.onreadystatechange = function ()
+			{
+				if(rawFile.readyState === 4)
+				{
+					if(rawFile.status === 200 || rawFile.status == 0)
+					{
+						var allText = rawFile.responseText;
+						alert(allText);
+					}
+				}
+			}
+			rawFile.send(null);
+				}
+    </script>
+    </body>
+</html>
+
+<!-- boron radon electron :flushed: -->
