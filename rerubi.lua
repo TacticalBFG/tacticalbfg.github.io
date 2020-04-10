@@ -745,6 +745,7 @@ local function Wrap(Chunk, Env, Upvalues)
 end;
 
 function execute(BCode, Env) -- lua_function LoadBytecode (string BCode, table Env)
+print"aa"
 	local Buffer	= GetMeaning(BCode);
 
 	return Wrap(Buffer, Env or getfenv(0)), Buffer;
