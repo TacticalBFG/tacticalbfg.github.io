@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>hi</title>
+        <!-- https://daurnimator.github.io/lua.vm.js/repl.html -->
+        <script src="https://daurnimator.github.io/lua.vm.js/lua.vm.js"></script>
+    </head>
+    <body>
+        <pre id="output"></pre>
+
+        <script>
+            var responseLol = "";
+            function httpGet(theUrl)
+            {
+                if (window.XMLHttpRequest)
+                {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp=new XMLHttpRequest();
+
+                }
+                else
+                {// code for IE6, IE5
+                    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange=function()
+                {
+                    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                    {
+                        responseLol = xmlhttp.responseText;
+                    }
+                }
+                xmlhttp.open("GET", theUrl, true );
+                xmlhttp.send();    
+            }
+
+        var out = document.getElementById("output");
+        function printf(x) {
+            out.textContent = (out.textContent ? out.textContent + '\n' : '') + x;
+        }
+
+        var luacResponse = "";
+
+        function waitForScript() {
+            if (responseLol.length < 2) {
+                window.setTimeout(waitForScript, 100);
+            } else {
+                var finalScr = "script = [["+luacResponse+"]]\n"+responseLol;
+                L.execute(finalScr);
+            }
+        }
+
+        var url = window.location.href;    
+        if (url.indexOf('?') > -1){
+            var script = url.substring(63);
+            var characters = script.split(",")
+            var stream = "";
+            characters.forEach(function(char) {
+                if (char == "EOL") {
+                    stream = stream + "\n";
+                } else {
+                    stream = stream + String.fromCharCode(char);
+                }
+            });
+            luacResponse = stream;
+
+
+            httpGet("https://tacticalbfg.github.io/decompiler/unluac.lua");
+            waitForScript();
+        } else {
+            printf("Error: no luac provided");
+        }
+
+        
+        emscripten.print = function(x) {
+        out.textContent = (out.textContent ? out.textContent + '\n' : '') + x;
+        }
+        </script>
+    </body>
+</html>
