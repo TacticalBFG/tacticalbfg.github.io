@@ -597,7 +597,6 @@ for i,p in pairs(protos) do
         finalScript = p.source
     end
 end
-print"hi"
 
 --print("decompiled: \r\n")
 --print(finalScript)
@@ -606,5 +605,5 @@ outputfile = io.open("decompiled.lua", "w+")
 io.output(outputfile)
 io.write(finalScript)
 io.close(outputfile)]]
-print("final script: "..finalScript)
+print(finalScript)
 return finalScript
