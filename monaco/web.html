@@ -93,6 +93,11 @@
 					editor.setValue(x);
 				}
 				
+				window.addEventListener('message', event => {
+					setScript(event.data);
+					//console.log(event.data); 
+				}); 
+				
 				SwitchMinimap = function(flag) {
 					editor.updateOptions({
 						minimap: {
