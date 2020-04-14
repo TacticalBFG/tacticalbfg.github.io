@@ -87,7 +87,9 @@
             var fyield = document.getElementById("yield");
             var fex = document.getElementById("funcExample");
             
-            setTimeout(function() { console.log(fex.contentWindow.setScript("print'hi'")); }, 1000);
+            fex.addEventListener("load", function() {
+                fex.contentWindow.setScript("hi");
+            });
         </script>
         
 
