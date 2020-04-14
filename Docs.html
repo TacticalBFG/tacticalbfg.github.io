@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Helicity Lua Documentation</title>
+
+        <style>
+            html, body {
+                background-color: rgb(35,35,35);
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+            #funcContainer {
+                background-color: rgb(25,25,25);
+                width: 20%;
+                height: 100%;
+                display: inline-block;
+            }
+            #funcInfo {
+                display: inline-block;
+                position: absolute;
+                width: 80%;
+                padding-top: 30px;
+            }
+
+            @font-face {
+                font-family: 'Roboto';
+                src: url('data/Roboto.ttf');
+                font-weight: 200;
+            }
+
+            .funcLink {
+                padding-left: 25px;
+                color: rgb(255,255,255);
+                font-family: sans-serif;
+                text-decoration: none;
+                font-size: 20px;
+            }
+            #funcName {
+                color: rgb(255,255,255);
+                font-weight: lighter;
+                text-align: center;
+                font-size: 40px;
+                font-family: Roboto;
+            }
+            .funcDescription {
+                padding-left: 50px;
+                color: rgb(255,255,255);
+                font-weight: lighter;
+                font-size: 20px;
+                font-family: Roboto;
+            }
+            #funcExample {
+                border: none;
+                width: 400px;
+                padding-left: 50px;
+            }
+        </style>
+    </head>
+
+    <body>
+        
+        <div id="funcContainer">
+            <img src="data/luadocsLogo.png" width="250" style="padding-left: 15px;">
+            <br>
+            <a class="funcLink" href="?f=getrawmetatable">getrawmetatable</a><br><br>
+            <a class="funcLink" href="?f=getnamecallmethod">getnamecallmethod</a><br><br>
+            <a class="funcLink" href="?f=setreadonly">setreadonly</a><br><br>
+        </div>
+        <div id="funcInfo">
+            <h1 id="funcName">getrawmetatable</h1>
+            <h2 id="res" class="funcDescription">returns: table { arg's metatable }</h2>
+            <h2 id="args" class="funcDescription">arguments: Instance / Table</h2>
+            <h2 id="yield" class="funcDescription">yielding: no</h2>
+            <br>
+            <h2 class="funcDescription">Example(s):</h2>
+            <iframe id="funcExample" src="https://tacticalbfg.github.io/monaco/web.html"></iframe>
+        </div>
+
+        <script>
+            var functionDefinitions = {};
+            functionDefinitions.getrawmetatable = ["hi","abc",false,"gamer"];
+
+            var func = "getrawmetatable";
+            var fname = document.getElementById("funcName");
+            var fret = document.getElementById("res");
+            var fyield = document.getElementById("yield");
+            var fex = document.getElementById("funcExample");
+            
+            setTimeout(function() { console.log(fex.contentWindow.setScript("print'hi'")); }, 1000);
+        </script>
+        
+
+    </body>
+</html>
