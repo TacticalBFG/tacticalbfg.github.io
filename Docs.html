@@ -15,6 +15,7 @@
                 width: 20%;
                 height: 100%;
                 display: inline-block;
+                overflow: auto;
             }
             #funcInfo {
                 display: inline-block;
@@ -66,30 +67,133 @@
             <a class="funcLink" href="?f=getrawmetatable">getrawmetatable</a><br><br>
             <a class="funcLink" href="?f=getnamecallmethod">getnamecallmethod</a><br><br>
             <a class="funcLink" href="?f=setreadonly">setreadonly</a><br><br>
+            <a class="funcLink" href="?f=make_writeable">make_writeable</a><br><br>
+            <a class="funcLink" href="?f=isreadonly">isreadonly</a><br><br>
+            <a class="funcLink" href="?f=getgenv">getgenv</a><br><br>
+            <a class="funcLink" href="?f=getrenv">getrenv</a><br><br>
+            <a class="funcLink" href="?f=getreg">getreg</a><br><br>
+            <a class="funcLink" href="?f=getgc">getgc</a><br><br>
+            <a class="funcLink" href="?f=getsenv">getsenv</a><br><br>
+            <a class="funcLink" href="?f=newcclosure">newcclosure</a><br><br>
+            <a class="funcLink" href="?f=iscclosure">iscclosure</a><br><br>
+            <a class="funcLink" href="?f=loadstring">loadstring</a><br><br>
+            <a class="funcLink" href="?f=getobjects">getobjects</a><br><br>
+            <a class="funcLink" href="?f=yhttpget">yhttpget</a><br><br>
+            <a class="funcLink" href="?f=writefile">writefile</a><br><br>
+            <a class="funcLink" href="?f=readfile">readfile</a><br><br>
+            <a class="funcLink" href="?f=dofile">dofile</a><br><br>
+            <a class="funcLink" href="?f=setclipboard">setclipboard</a><br><br>
+            <a class="funcLink" href="?f=decompile">decompile</a><br><br>
+            <a class="funcLink" href="?f=saveinstance">saveinstance</a><br><br>
+            <a class="funcLink" href="?f=getnilinstances">getnilinstances</a><br><br>
+            <a class="funcLink" href="?f=mousemoverel">mousemoverel</a><br><br>
+            <a class="funcLink" href="?f=getconnections">getconnections</a><br><br>
+            <a class="funcLink" href="?f=fireclickdetector">fireclickdetector</a><br><br>
+            <a class="funcLink" href="?f=executebytecode">executebytecode</a><br><br>
+            <a class="funcLink" href="?f=getbytecode">getbytecode</a><br><br>
+            <a class="funcLink" href="?f=setthreadidentity">setthreadidentity</a><br><br>
+            <a class="funcLink" href="?f=getthreadidentity">getthreadidentity</a><br><br>
+            <a class="funcLink" href="?f=disabletrust">disabletrust</a><br><br>
+            <a class="funcLink" href="?f=enabletrust">enabletrust</a><br><br>
+
+            <br><br><br>
+
+            <a class="funcLink" href="?f=debug.getupvalues">debug.getupvalues</a><br><br>
+            <a class="funcLink" href="?f=debug.setupvalue">debug.setupvalue</a><br><br>
+            <a class="funcLink" href="?f=debug.getconstants">debug.getconstants</a><br><br>
+            <a class="funcLink" href="?f=debug.getfunction">debug.getfunction</a><br><br>
+            <a class="funcLink" href="?f=debug.getaob">debug.getaob</a><br><br>
+            <a class="funcLink" href="?f=debug.setconstant">debug.setconstant</a><br><br>
+            <a class="funcLink" href="?f=debug.getmetatable">debug.getmetatable</a><br><br>
+            <a class="funcLink" href="?f=debug.setmetatable">debug.setmetatable</a><br><br>
+
+            <br><br><br>
+
+            <a class="funcLink" href="?f=ss.load">ss.load</a><br><br>
+            <a class="funcLink" href="?f=ss.execute">ss.execute</a><br><br>
+
+            <br><br><br>
+
+            <a class="funcLink" href="?f=sha256.encode">sha256.encode</a><br><br>
+            <a class="funcLink" href="?f=base64.encode">base64.encode</a><br><br>
+            <a class="funcLink" href="?f=base64.decode">base64.decode</a><br><br>
         </div>
         <div id="funcInfo">
-            <h1 id="funcName">getrawmetatable</h1>
-            <h2 id="res" class="funcDescription">returns: table { arg's metatable }</h2>
-            <h2 id="args" class="funcDescription">arguments: Instance / Table</h2>
-            <h2 id="yield" class="funcDescription">yielding: no</h2>
+            <h1 id="funcName"></h1>
+            <h2 id="desc" class="funcDescription"></h2>
+            <h2 id="res" class="funcDescription"></h2>
+            <h2 id="args" class="funcDescription"></h2>
+            <h2 id="yield" class="funcDescription"></h2>
             <br>
-            <h2 class="funcDescription">Example(s):</h2>
+            <h2 id="hi" class="funcDescription"></h2>
             <iframe id="funcExample" src="https://tacticalbfg.github.io/monaco/web.html"></iframe>
         </div>
 
         <script>
             var functionDefinitions = {};
-            functionDefinitions.getrawmetatable = ["hi","abc",false,"gamer"];
+            functionDefinitions.getrawmetatable = ["get the table/instance's metatable, even if its locked.", "table { arg's metatable }","{ Table/Instance }",false];
+            functionDefinitions.getnamecallmethod = ["gets the method that __namecall was called with.", "string","(none)",false];
+            functionDefinitions.setreadonly = ["allows if youre able to write to a locked table", "(none)","{table, bool}",false];
+            functionDefinitions.make_writeable = ["allows you to write to a locked table", "(none)","{table}",false];
+            functionDefinitions.isreadonly = ["returns if a table is readonly", "{table}","{ bool }",false];
+            functionDefinitions.getgenv = ["returns Helicity's lua enviornment", "(none)","{ table }",false];
+            functionDefinitions.getrenv = ["returns Roblox's lua enviornment", "(none)","{ table }",false];
+            functionDefinitions.getreg = ["returns Roblox's lua registry", "(none)","{ table }",false];
+            functionDefinitions.getgc = ["Returns all objects in Roblox's lua garbage collector", "(none)","{ table }",false];
+            functionDefinitions.getsenv = ["returns the script's enviornment", "{ script }","{ table }",false];
+            functionDefinitions.newcclosure = ["wraps the function in a cclosure and returns the cclosure", "{ function }","{ function }",false];
+            functionDefinitions.iscclosure = ["returns if the passed argument is a cclosure", "{ function }","{ bool }",false];
+            functionDefinitions.loadstring = ["compiles the given string and returns it as a callable function", "{ string }","{ function }",false];
+            functionDefinitions.getobjects = ["internal function for game:GetObjects", "{ string }","{ table }",false];
+            functionDefinitions.yhttpget = ["YIELDING version of game:HttpGet; returns a string with the website's content", "{ string }","{ string }",true];
+            functionDefinitions.writefile = ["writes the contents to a file located in Helicity\\Workspace", "{ string FileName, string Contents }","(none)",true];
+            functionDefinitions.readfile = ["returns the contents of the file located in Helicity\\Workspace", "{ string FileName }","{ string Contents }",true];
+            functionDefinitions.dofile = ["executes a file contents. basically loadstring(readfile())", "{ string FileName }","(none)",true];
+            functionDefinitions.setclipboard = ["sets the user's clipboard", "{ string content }","(none)",false];
+            functionDefinitions.decompile = ["decompiles the given script/function. if decompilation fails, instead returns error message.", "{ Instance script / function }","{ string }",true];
+            functionDefinitions.saveinstance = ["writes the instance's XML data to a file in Helicity\\Workspace", "{ string FileName, Instance toSave }","(none)",true];
+            functionDefinitions.getnilinstances = ["returns a table of all instances parented to nil", "(none)","{ table }",false];
+            functionDefinitions.movemouserel = ["moves the player's mouse relative to where it is (also alias is mousemoverel)", "{ int dX, int dY }","(none)",false];
+            functionDefinitions.getconnections = ["returns a table of all the connections", "{ RBXScriptSignal }","{ table }",false];
+            functionDefinitions.fireclickdetector = ["fires the given ClickDetector", "{ Instance ClickDetector }","(none)",false];
+            functionDefinitions.executebytecode = ["executes the given luau bytecode (MUST be in Helicity's format). Returns a string if error.", "{ string }","{ none; else string }",false];
+            functionDefinitions.getbytecode = ["returns the luau bytecode of a given function/script.", "{ Function / Script }","{ string }",true];
+            functionDefinitions.setthreadidentity = ["sets the script's thread identity to the given identity", "{ int identity (1->6) }","(void)",false];
+            functionDefinitions.getthreadidentity = ["returns the script's thread identity", "(none)","{ int }",false];
+            functionDefinitions.disabletrust = ["internal function used for trust check bypass", "(none)","(none)",false];
+            functionDefinitions.enabletrust = ["internal function used for trust check bypass", "(none)","(none)",false];
 
-            var func = "getrawmetatable";
             var fname = document.getElementById("funcName");
+            var fargs = document.getElementById("args");
             var fret = document.getElementById("res");
             var fyield = document.getElementById("yield");
+            var fdesc = document.getElementById("desc");
             var fex = document.getElementById("funcExample");
+            var ex = document.getElementById("hi");
             
-            fex.addEventListener("load", function() {
+            /*fex.addEventListener("load", function() {
                 fex.contentWindow.setScript("hi");
-            });
+            });*/
+
+            function updateInfo(func) {
+                let funcInfo = functionDefinitions[func];
+                if (func.indexOf('.') > -1) {
+                    func = func.split(".")[1];
+                }
+                fname.innerHTML = func;
+                fdesc.innerHTML = "description: "+funcInfo[0];
+                fret.innerHTML = "returns: "+funcInfo[1];
+                fargs.innerHTML = "arguments: "+funcInfo[2];
+                fyield.innerHTML = "yielding: "+funcInfo[3];
+                ex.innerHTML = "Example:";
+            }
+
+            var url = window.location.href;    
+            if (url.indexOf('?') > -1){
+                let func = url.substring(74);
+                console.log(func);
+                updateInfo(func);
+            }
         </script>
         
 
