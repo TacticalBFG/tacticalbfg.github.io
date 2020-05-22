@@ -46,7 +46,8 @@ define(["require", "exports"], function (require, exports) {
             'end', 'false', 'for', 'function', 'goto', 'if',
             'in', 'local', 'nil', 'not', 'or',
             'repeat', 'return', 'then', 'true', 'until',
-            'while', 
+            'while', 'continue', 'switch', 'case', 'default', 'double', 'u32', 'string32',
+		
 			'delay', 'elapsedTime', 'tick', 'printidentity', 'print',
 			'warn', 'error', 'require', 'settings', 'spawn', 'stats',
 			'time', 'typeof', 'type', 'UserSettings', 'version', 'wait',
@@ -60,8 +61,8 @@ define(["require", "exports"], function (require, exports) {
 			'ipairs', 'pairs', 'loadstring', 'newproxy', 'next', 'pcall', 'xpcall', 'ypcall',
 			'rawequal', 'rawset', 'rawget', 'select', 'unpack', 'setmetatable', 'tonumber',
 			'tostring', '_G', '_VERSION',
-			'getrawmetatable', 'setreadonly', 'make_writeable', 'getgenv',
-			'getrenv', 'getreg', 'getnamecallmethod', 'getconstants', 'decompile'
+			'getrawmetatable', 'setreadonly', 'make_writeable', 'getgenv', 'setreadonly',
+			'getrenv', 'getreg', 'getnamecallmethod', 'getconstants', 'decompile', 'bit32'
         ],
         brackets: [
             { token: 'delimiter.bracket', open: '{', close: '}' },
