@@ -46,7 +46,7 @@ define(["require", "exports"], function (require, exports) {
             'end', 'false', 'for', 'function', 'goto', 'if',
             'in', 'local', 'nil', 'not', 'or',
             'repeat', 'return', 'then', 'true', 'until',
-            'while', 'continue', 'switch', 'case', 'default', 'double', 'u32', 'string32',
+            'while', 'continue', 'switch', 'case', 'default', 'double', 'u32', 'string32', 'int', 'array', 'foreach', 
 		
 			'delay', 'elapsedTime', 'tick', 'printidentity', 'print',
 			'warn', 'error', 'require', 'settings', 'spawn', 'stats',
