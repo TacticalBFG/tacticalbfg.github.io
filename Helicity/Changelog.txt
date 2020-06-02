@@ -1,3 +1,12 @@
+2/6/20: Pre-Alpha 2.0.4:
+  * Improvements to LuaState scanning - much more stable!
+  * Can now inject on other games that were crashing before cuz luastate fix
+  * Fixed getrawmetatable shutting u down
+  * Fixed decompiler crashing - returns constants instead until finished
+  * Added back readfile
+  * Tightened security on writefile extensions
+  * Fixed weird injection issues people were having
+
 1/6/20: Pre-Alpha 2.0.3:
   * Switched to using a bootstrapper for installation
   * Finally added automatic update re-downloading
