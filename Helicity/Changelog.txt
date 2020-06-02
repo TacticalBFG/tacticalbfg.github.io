@@ -1,0 +1,143 @@
+1/6/20: Pre-Alpha 2.0.3:
+  * Switched to using a bootstrapper for installation
+  * Finally added automatic update re-downloading
+  * Other small changes
+
+30/5/20: Pre-Alpha 2.0:
+ * Completely rewrote Helicity
+ * Luau stuff (see b2.0 cuz official beta will just be fixed pre-alph)
+
+??/?/20: Beta 2.0:
+ * Update for Roblox
+ * After so long, Luau support is finally here! (didnt work on it back in April like I should've, so it was heavily delayed)
+Note: some scripts may not fully work for a while because there's still some minor issues with conversion. I provided a way to get around this however (see the bytecode library below)
+ * Finally re-did the UI to be cleaner, faster, and easier than before.
+ * Helicity uses Roblox's new speed optimizations. Your scripts should execute faster!
+ * Improvements to math library:
+ 	* Added math.log2 (alias math.lb) - returns the binary (base-2) logarithm of arg1.
+	* Added math.e - Returns euler's number (the 2.718 dude)
+ * New lua syntax!!!
+	* Now has native support for bitwise and,or,xor,left shift, and right shift (bitwise NOT needs some tinkering)
+	* All the respective tokens for the new syntax can be found in the documentation
+	* Ex: print(14 & 3) will do a bitwise AND to 14, and return 2. (since 14 AND 3 is 2)
+  * Added support for ++, +=, -=, *=, /=, %=, ^=; (no -- cuz thats a comment lol)
+	* Added the ability to index an array at 0 (really just array[0] will return array[1], more for conveinience.)
+ * Improvements to obfuscator:
+	* what
+ * Added a pretty ok decompiler. (cant decompile large or complex scripts, but should do the job on smaller ones.)
+ * Added function getconnections
+ * Added function getnamecallmethod
+ * Fixed iscclosure
+ * Fixed getrenv
+ * Fixed getnilinstances
+ * Fixed getsenv
+ * Added global _WIDTH (gets roblox's screen width, usefor for shortening scripts)
+ * Added global _HEIGHT (gets roblox's screen height, useful for shortening scripts)
+ * Added debug library:
+	* Added function debug.getupvalues
+	* Added function debug.setupvalue
+	* Added function debug.getaob (see docs)
+	* Added function debug.getconstants (see docs)
+ * Added some bytecode functions:
+	* Added function executebytecode (see docs)
+	* Added function getbytecode (see docs)
+ * Added clickdetector functions
+	* Added function fireclickdetector (see docs)
+
+ * writefile & readfile should be MUCH faster now.
+ * Almost every single normal script is now able to be ran on SS without any conversion needed! (see below)
+ * Improvements to ss:
+	* Supported (most) stuff from the client
+	aka: you can now run "print(game.Players.LocalPlayer.Name)", or use RunService, and it'll work. try doing that with skidded sses :flush:
+	* Faster execution, like it wasnt fast enough already (jk rerubi fucking slow)
+	* Added DataModel::HttpGet to SS
+	* Added DataModel::GetObjects to SS
+ * Cleaned up Helicity's project, should help improve speed.
+ * added herobrine
+
+21/8/19: Beta 1.0.5:
+ * Update for Roblox
+ * Changed a few things internally to hopefully make it a bit faster
+ * Patched some weird security flaw
+
+16/8/19: Beta 1.0.4:
+ * Update for Roblox
+ * Added "Options" menu to Helicity UI
+ * Added "Always On Top" option to Heliciy
+ * Added "Auto Inject" option
+ * Added "Beta Tester" option (will only be in use when I have something I need to test.)
+
+
+7/8/19: Beta 1.0.3:
+ * Update for Roblox
+ * I have some new stuff coming soon, just wait a few more days
+
+5/8/19: Beta 1.0.2:
+ * Fixed stability, Helicity shouldn't act like my emotions towards Emma anymore
+
+1/8/19: Beta 1.0.1:
+ * Update for Roblox
+ * Fixed Helicity's awful stability on injection
+ * Note: Helicity is a bit broken rn because custom functions crash (working on rewriting callcheck), won't be able to be fixed for a few days because im going camping
+ * Due to dead custom functions: temporarily disabled autoexecute. (u can still use like farm scripts tho)
+ * Replaced some broken SS scripts
+ * Fixed saveinstance
+ * Fixed Helicity UI not responding 2 seconds after inject (im master coder yes)
+ * Fixed Helicity crashing on a few more games
+ * MINORLY fixed decompiler. Still won't give a fully decompiled script, but you might be able to pull some things out of %localappdata%\Roblox\Version\roblox version\HelicityDecompilerProto.lua
+ * Added docs file
+ * Temporarily disabled LuaU """""""execution""""""" until I finish actual LuaU proto conversion
+ * Changed some stuff internally to make it faster and easier to update.
+
+17/7/19: Beta 1.0 (official release)
+ * Update for Roblox update
+ * Fixed Helicity crashing when injecting into certain games
+ * You can now open Helicity Hub using a key (default is NumpadZero, feel free to change it in Scripts/autorun/init.lua)
+
+14/7/19: Alpha 1.3:
+ * Added debug.getupvalues
+ * Added debug.getconstants
+ * Added support for require(assetId) (require(Instance) doesnt work yet and idk why, fixing soon)
+
+ * Fixed debug.getinfo
+
+ * Removed DataModel:OpenVideosFolder() & DataModel:OpenScreenshotsFolder()
+
+ * Tried fixing crashing when clicking on Helicity Hub icon in lower left corner
+ * Improved security for writefile & readfile
+ * Compiler errors are now shown in Roblox, as apposed to the Helicity console
+ * Fixed Helicity not injecting for literally anyone (apparently definitions in header files are like hitler to compilers)
+
+
+10/7/19: Alpha 1.2:
+- NOTE: This update will NOT work on some games, as Roblox is now launching their new LuaU VM.
+Helicity will have a temporary fix in the coming weeks for this, until I finish the new VM.
+ * Update for Roblox
+ * Fixed some people crashing on inject
+ * HelicityHub now allows you to use shortened names
+ * Switched LuaState a bit, RemoteSpy/getsenv/getupvalues/getgc/whatever should work fine now.
+ * Fixed vulnerability that let u get a SecureScripts source
+ * Helicity will now automatically translate chatted discord emojis into actual emojis
+(E.G. saying :pensive: ingame will chat pensive emoji have fun)
+
+9/7/19: Alpha 1.1:
+ * fixed helicity not showing up for some people (roblox just randomly decided to change their install directory..)
+
+9/7/19: Alpha 1.0 (real version)
+ * added hash library
+ * added hash.sha256
+ * added base64 library
+ * added base64.encode
+ * added base64.decode
+
+ * added debug.getupvalue
+ * added debug.setmetatable
+ * added debug.setupvalue
+
+ * fixed iscclosure
+ * fixed getnilinstances
+ * fixed some c++ issues and yea
+
+
+4/7/19: Pre Alpha 1.0 (Fortain Tester Version)
+ * 1st release
