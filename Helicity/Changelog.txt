@@ -1,3 +1,9 @@
+3/6/20: Pre-Alpha 2.0.5:
+  * Updated for Roblox
+  * Roblox changed some stuff around, so pls let me know if any functions crash
+  * Switched to a Luau compiler instead of a transpiler (more accurate and faster, u should be able to run more scripts now)
+  * Broke some stuff for a meme; wait a few more days for me to complete compiler and itll work better
+
 2/6/20: Pre-Alpha 2.0.4:
   * Improvements to LuaState scanning - much more stable!
   * Can now inject on other games that were crashing before cuz luastate fix
