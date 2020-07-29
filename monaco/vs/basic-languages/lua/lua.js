@@ -49,14 +49,7 @@ define(["require", "exports"], function (require, exports) {
             'while', 'continue', 'switch', 'case', 'default', 'double', 'u32', 'string32', 'int', 'array', 'foreach', 'bool',
 		'const', 'close',
 		
-			
-        ],
-        brackets: [
-            { token: 'delimiter.bracket', open: '{', close: '}' },
-            { token: 'delimiter.array', open: '[', close: ']' },
-            { token: 'delimiter.parenthesis', open: '(', close: ')' }
-        ],
-        globals: ['delay', 'elapsedTime', 'tick', 'printidentity', 'print',
+			'delay', 'elapsedTime', 'tick', 'printidentity', 'print',
 			'warn', 'error', 'require', 'settings', 'spawn', 'stats',
 			'time', 'typeof', 'type', 'UserSettings', 'version', 'wait',
 			'Enum', 'game', 'workspace', 'shared', 'script', 'plugin',
@@ -70,7 +63,14 @@ define(["require", "exports"], function (require, exports) {
 			'rawequal', 'rawset', 'rawget', 'select', 'unpack', 'setmetatable', 'tonumber',
 			'tostring', '_G', '_VERSION',
 			'getrawmetatable', 'setreadonly', 'make_writeable', 'getgenv', 'setreadonly',
-			'getrenv', 'getreg', 'getnamecallmethod', 'getconstants', 'decompile', 'bit32'],
+			'getrenv', 'getreg', 'getnamecallmethod', 'getconstants', 'decompile', 'bit32'
+        ],
+        brackets: [
+            { token: 'delimiter.bracket', open: '{', close: '}' },
+            { token: 'delimiter.array', open: '[', close: ']' },
+            { token: 'delimiter.parenthesis', open: '(', close: ')' }
+        ],
+        globals: [],
         operators: [
             '+', '-', '*', '/', '%', '^', '#', '==', '~=', '<=', '>=', '<', '>', '=',
             ';', ':', ',', '.', '..', '...', '::',
