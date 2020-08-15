@@ -61,9 +61,13 @@ define(["require", "exports"], function (require, exports) {
 			'Vector3', 'collectgarbage', 'getfenv', 'setfenv', 'getmetatable', 'getrawmetatable',
 			'ipairs', 'pairs', 'loadstring', 'newproxy', 'next', 'pcall', 'xpcall', 'ypcall',
 			'rawequal', 'rawset', 'rawget', 'select', 'unpack', 'setmetatable', 'tonumber',
-			'tostring', '_G', '_VERSION',
-			'getrawmetatable', 'setreadonly', 'make_writeable', 'getgenv', 'setreadonly',
-			'getrenv', 'getreg', 'getnamecallmethod', 'getconstants', 'decompile', 'bit32'
+			'tostring', '_G', '_VERSION', 'bit32', 'string', 'table', 'coroutine', 'debug', 'math', 'os', 'utf8',
+		
+		'iscclosure', 'islclosure', 'newcclosure', 'getgenv', 'getrenv', 'getreg', 'getgc', 'httpget', 'httpGet', 'HttpGet', 'loadstring',
+		'movemouserel', 'mousemoverel', 'movemouseabs', 'mousemoveabs', 'writefile', 'readfile', 'getrawmetatable', 'setreadonly', 'make_writeable', 'isreadonly',
+		'getnamecallmethod', 'getselfmethod', 'setnamecallmethod', 'setselfmethod', 'getscriptproto', 'getScriptProto', 'cprint', 'dumpstring', 'runbytecode',
+		'luac', 'ss', 'sha256', 'base64'
+		
         ],
         brackets: [
             { token: 'delimiter.bracket', open: '{', close: '}' },
