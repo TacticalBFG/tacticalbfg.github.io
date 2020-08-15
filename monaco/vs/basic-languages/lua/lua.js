@@ -16,7 +16,6 @@ define(["require", "exports"], function (require, exports) {
             ['(', ')'],
             ['do', 'end'],
             ['then', 'end'],
-	    ['<', '>']
         ],
         autoClosingPairs: [
             { open: '{', close: '}' },
@@ -24,7 +23,6 @@ define(["require", "exports"], function (require, exports) {
             { open: '(', close: ')' },
             { open: '"', close: '"' },
             { open: '\'', close: '\'' },
-		{ open: '<', close: '>'},
         ],
         surroundingPairs: [
             { open: '{', close: '}' },
@@ -32,7 +30,6 @@ define(["require", "exports"], function (require, exports) {
             { open: '(', close: ')' },
             { open: '"', close: '"' },
             { open: '\'', close: '\'' },
-		{open: '<', close: '>' },
         ],
         folding: {
             markers: {
