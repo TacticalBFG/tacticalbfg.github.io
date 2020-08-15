@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Helicity Lua Documentation</title>
+
+        <style>
+            html, body {
+                background-color: rgb(35,35,35);
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+            #funcContainer {
+                background-color: rgb(25,25,25);
+                width: 20%;
+                height: 100%;
+                display: inline-block;
+                overflow: auto;
+            }
+            #funcInfo {
+                display: inline-block;
+                position: absolute;
+                width: 80%;
+                padding-top: 30px;
+            }
+
+            @font-face {
+                font-family: 'Roboto';
+                src: url('data/Roboto.ttf');
+                font-weight: 200;
+            }
+
+            .funcLink {
+                padding-left: 25px;
+                color: rgb(255,255,255);
+                font-family: sans-serif;
+                text-decoration: none;
+                font-size: 20px;
+            }
+            #funcName {
+                color: rgb(255,255,255);
+                font-weight: lighter;
+                text-align: center;
+                font-size: 40px;
+                font-family: Roboto;
+            }
+            .funcDescription {
+                padding-left: 50px;
+                color: rgb(255,255,255);
+                font-weight: lighter;
+                font-size: 20px;
+                font-family: Roboto;
+            }
+            #funcExample {
+                border: none;
+                width: 400px;
+                padding-left: 50px;
+            }
+        </style>
+    </head>
+
+    <body>
+        
+        <div id="funcContainer">
+            <img src="data/luadocsLogo.png" width="250" style="padding-left: 15px;">
+            <br>
+            <a class="funcLink" href="?f=iscclosure">iscclosure</a><br><br>
+			<a class="funcLink" href="?f=islclosure">islclosure</a><br><br>
+			<a class="funcLink" href="?f=newcclosure">newcclosure</a><br><br>
+			<a class="funcLink" href="?f=getgenv">getgenv</a><br><br>
+			<a class="funcLink" href="?f=getrenv">getrenv</a><br><br>
+			<a class="funcLink" href="?f=getreg">getreg</a><br><br>
+			<a class="funcLink" href="?f=getgc">getgc</a><br><br>
+			<a class="funcLink" href="?f=httpget">httpget</a><br><br>
+			<a class="funcLink" href="?f=loadstring">loadstring</a><br><br>
+			<a class="funcLink" href="?f=movemouserel">movemouserel</a><br><br>
+			<a class="funcLink" href="?f=movemouseabs">movemouseabs</a><br><br>
+			<a class="funcLink" href="?f=writefile">writefile</a><br><br>
+			<a class="funcLink" href="?f=readfile">readfile</a><br><br>
+			<a class="funcLink" href="?f=getrawmetatable">getrawmetatable</a><br><br>
+			<a class="funcLink" href="?f=setreadonly">setreadonly</a><br><br>
+			<a class="funcLink" href="?f=isreadonly">isreadonly</a><br><br>
+			<a class="funcLink" href="?f=getnamecallmethod">getnamecallmethod</a><br><br>
+			<a class="funcLink" href="?f=setnamecallmethod">setnamecallmethod</a><br><br>
+			<a class="funcLink" href="?f=cprint">cprint</a><br><br>
+			<a class="funcLink" href="?f=dumpstring">dumpstring</a><br><br>
+			<a class="funcLink" href="?f=runbytecode">runbytecode</a><br><br>
+			<a class="funcLink" href="?f=getscriptproto">getscriptproto</a><br><br>
+			<a class="funcLink" href="?f=decompile">decompile</a><br><br>
+			
+            <br><br><br>
+
+            <a class="funcLink" href="?f=debug$getupvalues">debug.getupvalues</a><br><br>
+			<a class="funcLink" href="?f=debug$getupvalue">debug.getupvalue</a><br><br>
+			<a class="funcLink" href="?f=debug$setupvalue">debug.setupvalue</a><br><br>
+			<a class="funcLink" href="?f=debug$getconstants">debug.getconstants</a><br><br>
+			<a class="funcLink" href="?f=debug$getconstant">debug.getconstant</a><br><br>
+			<a class="funcLink" href="?f=debug$setconstant">debug.setconstant</a><br><br>
+			<a class="funcLink" href="?f=debug$getprotos">debug.getprotos</a><br><br>
+			<a class="funcLink" href="?f=debug$getproto">debug.getproto</a><br><br>
+			<a class="funcLink" href="?f=debug$setproto">debug.setproto</a><br><br>
+			<a class="funcLink" href="?f=debug$getstack">debug.getstack</a><br><br>
+			<a class="funcLink" href="?f=debug$getinfo">debug.getinfo</a><br><br>
+		  
+            <br><br><br>
+			
+			<a class="funcLink" href="?f=luac$getglobal">luac.getglobal</a><br><br>
+			<a class="funcLink" href="?f=luac$setglobal">luac.setglobal</a><br><br>
+			<a class="funcLink" href="?f=luac$getfield">luac.getfield</a><br><br>
+			<a class="funcLink" href="?f=luac$setfield">luac.setfield</a><br><br>
+			<a class="funcLink" href="?f=luac$pushboolean">luac.pushboolean</a><br><br>
+			<a class="funcLink" href="?f=luac$pushstring">luac.pushstring</a><br><br>
+			<a class="funcLink" href="?f=luac$pushnumber">luac.pushnumber</a><br><br>
+			<a class="funcLink" href="?f=luac$pushnil">luac.pushnil</a><br><br>
+			<a class="funcLink" href="?f=luac$pushvalue">luac.pushvalue</a><br><br>
+			<a class="funcLink" href="?f=luac$pcall">luac.pcall</a><br><br>
+			
+			<br><br><br>
+
+            <a class="funcLink" href="?f=ss$load">ss.load</a><br><br>
+            <a class="funcLink" href="?f=ss$execute">ss.execute</a><br><br>
+
+            <br><br><br>
+
+            <a class="funcLink" href="?f=sha256$hash">sha256.hash</a><br><br>
+            <a class="funcLink" href="?f=base64$encode">base64.encode</a><br><br>
+            <a class="funcLink" href="?f=base64$decode">base64.decode</a><br><br>
+        </div>
+        <div id="funcInfo">
+            <h1 id="funcName"></h1>
+            <h2 id="desc" class="funcDescription"></h2>
+            <h2 id="res" class="funcDescription"></h2>
+            <h2 id="args" class="funcDescription"></h2>
+            <h2 id="yield" class="funcDescription"></h2>
+            <br>
+            <h2 id="hi" class="funcDescription"></h2>
+            <iframe id="funcExample" src="https://tacticalbfg.github.io/monaco/web.html"></iframe>
+        </div>
+
+        <script>
+            var func = {};
+			func.iscclosure = ["returns if the function passed is a C defined function.", "boolean", "function", false];
+			func.islclosure = ["returns if the function passed is a lua defined function", "boolean", "function", false];
+			func.newcclosure = ["wraps the function passed in a C-closure and returns the C-closure to be called", "function", "function", false];
+			func.getgenv = ["returns Roblox's global environment table.", "table", "&lt;nothing>", false];
+			func.getrenv = ["returns Roblox's environment table", "table", "&lt;nothing>", false];
+			func.getreg = ["returns Roblox's registry table", "table", "&lt;nothing>", false];
+			func.getgc = ["returns a list of all garbage-collectable objects on the stack", "table", "&lt;nothing>", false];
+			func.httpget = ["returns the raw html of a page (requests are made from the C-side of Helicity)", "string", "string&lt;url>", true];
+			func.loadstring = ["compiles the argument to a function and returns the function to be called", "function", "string&lt;script>", false];
+			func.movemouserel = ["moves the cursor relative to its current position (WILL AFFECT OUTSIDE OF ROBLOX)", "&lt;nothing>", "Vector2&lt;dx,dy>", false];
+			func.movemouseabs = ["moves the cursor to the absolute position given on the screen (WILL AFFECT OUTSIDE OF ROBLOX)", "&lt;nothing>", "Vector2&lt;x,y>", false];
+			func.writefile = ["writes to the file (located in Helicity/Workspace) (if no file with the name exists, one will be created; else contents will be overwritten.)", "&lt;nothing>", "string&lt;name>,   string&lt;contents>", false];
+			func.readfile = ["reads the file (located in Helicity\\Workspace folder)", "string&lt;contents>", "string&lt;name>", false];
+			func.getrawmetatable = ["returns the metatable of the given argument, bypassing Roblox's \"lock\".", "table", "variant&lt;table/userdata>", false];
+			func.setreadonly = ["sets the read-only flag of a table", "&lt;nothing>", "table", false];
+			func.isreadonly = ["returns the read-only flag of a table", "boolean", "table", false];
+			func.getnamecallmethod = ["returns the namecall method that was last used", "string&lt;method>", "&lt;nothing>", false];
+			func.setnamecallmethod = ["sets the namecall method that was last used (could be to-be-used if you tailcall the original namecall)", "&lt;nothing>", "string&lt;method>", false];
+			func.cprint = ["prints to the c console", "&lt;nothing>", "string&lt;message>", false];
+			func.dumpstring = ["returns the luau bytecode of the compiled string (little-endian, ASCII format)", "string&lt;bytecode>", "string&lt;script>", false];
+			func.runbytecode = ["runs the bytecode passed (MUST BE ASCII FORMAT, AS NORMAL BITS WILL ERROR)", "&lt;nothing>", "string\&lt;bytecode>", false];
+			func.getscriptproto = ["returns the main function (proto) of the script; useful for debug library", "function", "Instance&lt;script>", false];
+			func.decompile = ["returns the decompiled code of the script (may be incorrect/innacurate)", "string", "variant&lt;function, Instance(Local/ModuleScript)>", false];
+			
+			func.debug$getupvalues = ["returns a list of all upvalues used by the function", "table&lt;upvalues>", "variant&lt;function/level>", false];			
+			func.debug$getupvalue = ["returns the upvalue at the given index (2nd parameter)", "upvalue", "variant&lt;function/level>,  number&lt;index>", false];
+			func.debug$setupvalue = ["sets the upvalue at the given index (2nd parameter)", "&lt;nothing>", "variant&lt;function/level>,  number&lt;index>,  variant&lt;new value>", false];
+			func.debug$getconstants = ["returns a list of all constants used by the function", "table&lt;constants>", "variant&lt;function/level>", false];
+			func.debug$getconstant = ["returns the constant at the given index (2nd parameter)", "constant", "variant&lt;function/level>,  number&lt;index>", false];
+			func.debug$setconstant = ["sets the constant at the given index (2nd parameter)", "&lt;nothing>", "variant&lt;function/level>,  number&lt;index>,  variant&lt;new value>", false];
+			func.debug$getprotos = ["returns a list of all protos used by the function", "table&lt;constants>", "variant&lt;function/level>", false];
+			func.debug$getproto = ["returns the proto at the given index (2nd parameter)", "constant", "variant&lt;function/level>,  number&lt;index>", false];
+			func.debug$setproto = ["sets the proto at the given index (2nd parameter) NOTE: THE GIVEN PROTO MUST BE A LUA-DEFINED FUNCTION", "&lt;nothing>", "variant&lt;function/level>,  number&lt;index>,  proto&lt;new value>", false];
+			func.debug$getinfo = ["returns the info of the function (see <a href=\"https://www.lua.org/manual/5.1/manual.html#lua_getinfo\">lua_getinfo docs&lt;/a>", "table&lt;info>", "variant&lt;function/level>,   string&lt;what>", false];
+			func.debug$getstack = ["returns the stack at the level given.", "table&lt;debug info>", "number&lt;level>", false];
+			
+			func.luac$getglobal = ["returns the global given", "variant", "string&lt;name>", false];
+			func.luac$setglobal = ["sets the global to the last element on the stack", "&lt;nothing>", "string&lt;name>", false];
+			func.luac$getfield = ["returns RA[Key]", "variant", "number&lt;ra>,  string&lt;key>", false];
+			func.luac$setfield = ["RA[Key] = Value", "&lt;nothing>", "number&lt;ra>, string&lt;key>, variant&lt;value>", false];
+			func.luac$pushboolean = ["pushes the given value to the top of the stack", "&lt;nothing>", "boolean&lt;value>", false];
+			func.luac$pushstring = ["pushes the given value to the top of the stack", "&lt;nothing>", "string&lt;value>", false];
+			func.luac$pushnumber = ["pushes the given value to the top of the stack", "&lt;nothing>", "number&lt;value>", false];
+			func.luac$pushnil = ["pushes the given value to the top of the stack", "&lt;nothing>", "&lt;nothing>", false];
+			func.luac$pushvalue = ["pushes the value at Top[index] to the very top of the stack", "&lt;nothing>", "int&lt;index>", false];
+			func.luac$pcall = ["calls the function at top[top - index] with nargs and pushes nresults to the stack. ", "&lt;nothing>", "number&lt;index>,  number&lt;nargs>,  number&lt;errfunc>", false];
+			
+			func.ss$load = ["loads the module id on the server and passes the given name as its only parameter; Equivalent to ss.execute(\"require(moduleId).load(name)\")", "&lt;nothing>", "number&lt;module id>,  string&lt;name>", false];
+			func.ss$execute = ["executes the given code on the server (at identity level 2)", "string; only if compiler error (else nil)", "string&lt;script>", false];
+			
+			func.sha256$hash = ["returns the SHA-256 hash of the given string", "string&lt;hashed>", "string", false];
+			func.base64$encode = ["returns the base-64 encoded version of the given string", "string", "string", false];
+			func.base64$decode = ["returns the decoded base-64 of the given string", "string", "string", false];
+			
+            var fname = document.getElementById("funcName");
+            var fargs = document.getElementById("args");
+            var fret = document.getElementById("res");
+            var fyield = document.getElementById("yield");
+            var fdesc = document.getElementById("desc");
+            var fex = document.getElementById("funcExample");
+            var ex = document.getElementById("hi");
+			
+			var canWrite = false;
+            
+            fex.addEventListener("load", function() {
+				setTimeout(function() {
+					canWrite = true;
+				}, 100);
+            });
+
+            function updateInfo(f) {
+                let funcInfo = func[f];
+                fname.innerHTML = f.replace("$", ".");
+                fdesc.innerHTML = "description: "+funcInfo[0];
+                fret.innerHTML = "returns: "+funcInfo[1];
+                fargs.innerHTML = "arguments: "+funcInfo[2];
+                fyield.innerHTML = "yielding: "+funcInfo[3];
+                ex.innerHTML = "Example:";
+				
+				if (canWrite && funcInfo.length > 4) {
+					 fex.contentWindow.setScript("hi");
+				}
+				
+				//console.log(fex.contentWindow);
+            }
+
+            var url = window.location.href;    
+            if (url.indexOf('?') > -1){
+                let func = url.substring(url.indexOf('?') + 3)//url.substring(42);
+                console.log(func);
+                updateInfo(func);
+            }
+        </script>
+        
+
+    </body>
+</html>
