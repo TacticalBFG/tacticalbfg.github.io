@@ -62,7 +62,7 @@
     <body>
         
         <div id="funcContainer">
-            <img src="luadocsLogo.png" width="250" style="padding-left: 15px;">
+            <img src="https://raw.githubusercontent.com/TacticalBFG/tacticalbfg.github.io/master/Helicity/luadocsLogo.png" width="250" style="padding-left: 15px;">
             <br>
             <a class="funcLink" href="?f=iscclosure">iscclosure</a><br><br>
 			<a class="funcLink" href="?f=islclosure">islclosure</a><br><br>
@@ -169,9 +169,9 @@
 			func.debug$getconstants = ["returns a list of all constants used by the function", "table&lt;constants>", "variant&lt;function/level>", false];
 			func.debug$getconstant = ["returns the constant at the given index (2nd parameter)", "constant", "variant&lt;function/level>,  number&lt;index>", false];
 			func.debug$setconstant = ["sets the constant at the given index (2nd parameter)", "&lt;nothing>", "variant&lt;function/level>,  number&lt;index>,  variant&lt;new value>", false];
-			func.debug$getprotos = ["returns a list of all protos used by the function", "table&lt;constants>", "variant&lt;function/level>", false];
-			func.debug$getproto = ["returns the proto at the given index (2nd parameter)", "constant", "variant&lt;function/level>,  number&lt;index>", false];
-			func.debug$setproto = ["sets the proto at the given index (2nd parameter) NOTE: THE GIVEN PROTO MUST BE A LUA-DEFINED FUNCTION", "&lt;nothing>", "variant&lt;function/level>,  number&lt;index>,  proto&lt;new value>", false];
+			func.debug$getprotos = ["returns a list of all protos used by the function", "table&lt;function>", "variant&lt;function/level>", false];
+			func.debug$getproto = ["returns the proto at the given index (2nd parameter)", "function", "variant&lt;function/level>,  number&lt;index>", false];
+			func.debug$setproto = ["sets the proto at the given index (2nd parameter) NOTE: THE GIVEN PROTO MUST BE A LUA-DEFINED FUNCTION", "&lt;nothing>", "variant&lt;function/level>,  number&lt;index>,  function&lt;new value>", false];
 			func.debug$getinfo = ["returns the info of the function (see <a href=\"https://www.lua.org/manual/5.1/manual.html#lua_getinfo\">lua_getinfo docs&lt;/a>", "table&lt;info>", "variant&lt;function/level>,   string&lt;what>", false];
 			func.debug$getstack = ["returns the stack at the level given.", "table&lt;debug info>", "number&lt;level>", false];
 			
@@ -186,7 +186,7 @@
 			func.luac$pushvalue = ["pushes the value at Top[index] to the very top of the stack", "&lt;nothing>", "int&lt;index>", false];
 			func.luac$pcall = ["calls the function at top[top - index] with nargs and pushes nresults to the stack. ", "&lt;nothing>", "number&lt;index>,  number&lt;nargs>,  number&lt;errfunc>", false];
 			
-			func.ss$load = ["loads the module id on the server and passes the given name as its only parameter; Equivalent to ss.execute(\"require(moduleId).load(name)\")", "&lt;nothing>", "number&lt;module id>,  string&lt;name>", false];
+			func.ss$load = ["loads the module id on the server and passes the given name as its only parameter; Equivalent to ss.execute(\"require(moduleId).load(name)\")", "&lt;nothing>", "number&lt;module id>,  string&lt;name>", false, "ss.load(12345, 'Formabl_e')"];
 			func.ss$execute = ["executes the given code on the server (at identity level 2)", "string; only if compiler error (else nil)", "string&lt;script>", false];
 			
 			func.sha256$hash = ["returns the SHA-256 hash of the given string", "string&lt;hashed>", "string", false];
@@ -203,11 +203,7 @@
 			
 			var canWrite = false;
             
-            fex.addEventListener("load", function() {
-				setTimeout(function() {
-					canWrite = true;
-				}, 100);
-            });
+           
 
             function updateInfo(f) {
                 let funcInfo = func[f];
@@ -218,9 +214,13 @@
                 fyield.innerHTML = "yielding: "+funcInfo[3];
                 ex.innerHTML = "Example:";
 				
-				if (canWrite && funcInfo.length > 4) {
-					 fex.contentWindow.setScript("hi");
-				}
+				 fex.addEventListener("load", function() {
+					setTimeout(function() {
+						if (funcInfo.length > 4) {
+							fex.contentWindow.setScript("hi");
+						}
+					}, 100);
+				});
 				
 				//console.log(fex.contentWindow);
             }
