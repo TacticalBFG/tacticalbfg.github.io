@@ -148,20 +148,20 @@
 			func.getgc = ["returns a list of all garbage-collectable objects on the stack", "table", "&lt;nothing>", false, "table.foreach(getgc(), print)"];
 			func.httpget = ["returns the raw html of a page (requests are made from the C-side of Helicity)", "string", "string&lt;url>", true, "google = httpget('https://www.google.com')\nprint(google)"];
 			func.loadstring = ["compiles the argument to a function and returns the function to be called", "function", "string&lt;script>", false, "compiled = loadstring('print(\"hi\")')\ncompiled()"];
-			func.movemouserel = ["moves the cursor relative to its current position (WILL AFFECT OUTSIDE OF ROBLOX)", "&lt;nothing>", "Vector2&lt;dx,dy>", false];
-			func.movemouseabs = ["moves the cursor to the absolute position given on the screen (WILL AFFECT OUTSIDE OF ROBLOX)", "&lt;nothing>", "Vector2&lt;x,y>", false];
-			func.writefile = ["writes to the file (located in Helicity/Workspace) (if no file with the name exists, one will be created; else contents will be overwritten.)", "&lt;nothing>", "string&lt;name>,   string&lt;contents>", false];
-			func.readfile = ["reads the file (located in Helicity\\Workspace folder)", "string&lt;contents>", "string&lt;name>", false];
-			func.getrawmetatable = ["returns the metatable of the given argument, bypassing Roblox's \"lock\".", "table", "variant&lt;table/userdata>", false];
-			func.setreadonly = ["sets the read-only flag of a table", "&lt;nothing>", "table", false];
-			func.isreadonly = ["returns the read-only flag of a table", "boolean", "table", false];
-			func.getnamecallmethod = ["returns the namecall method that was last used", "string&lt;method>", "&lt;nothing>", false];
-			func.setnamecallmethod = ["sets the namecall method that was last used (could be to-be-used if you tailcall the original namecall)", "&lt;nothing>", "string&lt;method>", false];
-			func.cprint = ["prints to the c console", "&lt;nothing>", "string&lt;message>", false];
-			func.dumpstring = ["returns the luau bytecode of the compiled string (little-endian, ASCII format)", "string&lt;bytecode>", "string&lt;script>", false];
-			func.runbytecode = ["runs the bytecode passed (MUST BE ASCII FORMAT, AS NORMAL BITS WILL ERROR)", "&lt;nothing>", "string\&lt;bytecode>", false];
-			func.getscriptproto = ["returns the main function (proto) of the script; useful for debug library", "function", "Instance&lt;script>", false];
-			func.decompile = ["returns the decompiled code of the script (may be incorrect/innacurate)", "string", "variant&lt;function, Instance(Local/ModuleScript)>", false];
+			func.movemouserel = ["moves the cursor relative to its current position (WILL AFFECT OUTSIDE OF ROBLOX)", "&lt;nothing>", "number<dx>,  number<dy>", false, "movemouserel(50, 50) -- Moves your mouse 50 px to the right and 50 px down"];
+			func.movemouseabs = ["moves the cursor to the absolute position given on the screen (WILL AFFECT OUTSIDE OF ROBLOX)", "&lt;nothing>", "number<dx>,  number<dy>", false, "movemouseabs(0, 1080/2) -- Moves your mouse to the left-most center of your screen."];
+			func.writefile = ["writes to the file (located in Helicity/Workspace) (if no file with the name exists, one will be created; else contents will be overwritten.)", "&lt;nothing>", "string&lt;name>,   string&lt;contents>", false, "writefile('test.txt', 'The number you've reached is not in service. Please check the number and dial again. Thank you')"];
+			func.readfile = ["reads the file (located in Helicity\\Workspace folder)", "string&lt;contents>", "string&lt;name>", false, "JSONed_Settings = readfile('MyHubSettings.txt')\nsettings = httpservice:JSONDecode(JSONed_Settings)"];
+			func.getrawmetatable = ["returns the metatable of the given argument, bypassing Roblox's \"lock\".", "table", "variant&lt;table/userdata>", false, "game_mt = getrawmetatable(game)"];
+			func.setreadonly = ["sets the read-only flag of a table", "&lt;nothing>", "table", false, "setreadonly(game_mt, false) -- Allows game_mt to be changed around"];
+			func.isreadonly = ["returns the read-only flag of a table", "boolean", "table", false, "canIWrite = not isreadonly(game_mt)\nprint('Can i change the game around?', canIWrite)"];
+			func.getnamecallmethod = ["returns the namecall method that was last used", "string&lt;method>", "&lt;nothing>", false, "game_mt.__namecall = function(...)\n   local calledWith = getnamecallmethod()\nend"];
+			func.setnamecallmethod = ["sets the namecall method that was last used (could be to-be-used if you tailcall the original namecall)", "&lt;nothing>", "string&lt;method>", false, "game_mt.__namecall = function(...)\n   setnamecallmethod('InvokeServer')\n   return old_game_mt.__namecall(...)\nend"];
+			func.cprint = ["prints to the c console", "&lt;nothing>", "string&lt;message>", false, "cprint('Hello world!')"];
+			func.dumpstring = ["returns the luau bytecode of the compiled string (little-endian, ASCII format)", "string&lt;bytecode>", "string&lt;script>", false, "bytecode = dumpstring('print(\"hello world!\")')\nwritefile('dumped.txt', bytecode)"];
+			func.runbytecode = ["runs the bytecode passed (MUST BE ASCII FORMAT, AS NORMAL BITS WILL ERROR)", "&lt;nothing>", "string\&lt;bytecode>", false, "hello_world_bytecode = readfile('dumped.txt')\nrunbytecode(hello_world_bytecode)"];
+			func.getscriptproto = ["returns the main function (proto) of the script; useful for debug library (unlike ProtoSmasher, Helicity allows you to call the function returned)", "function", "Instance&lt;script>", false, "someCheckScript = getscriptproto(game.ReplicatedFirst.CheckWalkspeed)\ntable.foreach(debug.getconstants(someCheckScript), print)"];
+			func.decompile = ["returns the decompiled code of the script (may be incorrect/innacurate)", "string", "variant&lt;function, Instance(Local/ModuleScript)>,  bool<open analysis window> = false", false, "checkScript = decompile(game.ReplicatedFirst.CheckWalkspeed, true)\n-- Because of the true parameter, this will open Helicity's script analysis window for better decompilation."];
 			
 			func.debug$getupvalues = ["returns a list of all upvalues used by the function", "table&lt;upvalues>", "variant&lt;function/level>", false];			
 			func.debug$getupvalue = ["returns the upvalue at the given index (2nd parameter)", "upvalue", "variant&lt;function/level>,  number&lt;index>", false];
@@ -175,19 +175,19 @@
 			func.debug$getinfo = ["returns the info of the function (see <a href=\"https://www.lua.org/manual/5.1/manual.html#lua_getinfo\">lua_getinfo docs&lt;/a>", "table&lt;info>", "variant&lt;function/level>,   string&lt;what>", false];
 			func.debug$getstack = ["returns the stack at the level given.", "table&lt;debug info>", "number&lt;level>", false];
 			
-			func.luac$getglobal = ["returns the global given", "variant", "string&lt;name>", false];
-			func.luac$setglobal = ["sets the global to the last element on the stack", "&lt;nothing>", "string&lt;name>", false];
-			func.luac$getfield = ["returns RA[Key]", "variant", "number&lt;ra>,  string&lt;key>", false];
-			func.luac$setfield = ["RA[Key] = Value", "&lt;nothing>", "number&lt;ra>, string&lt;key>, variant&lt;value>", false];
-			func.luac$pushboolean = ["pushes the given value to the top of the stack", "&lt;nothing>", "boolean&lt;value>", false];
-			func.luac$pushstring = ["pushes the given value to the top of the stack", "&lt;nothing>", "string&lt;value>", false];
-			func.luac$pushnumber = ["pushes the given value to the top of the stack", "&lt;nothing>", "number&lt;value>", false];
-			func.luac$pushnil = ["pushes the given value to the top of the stack", "&lt;nothing>", "&lt;nothing>", false];
-			func.luac$pushvalue = ["pushes the value at Top[index] to the very top of the stack", "&lt;nothing>", "int&lt;index>", false];
-			func.luac$pcall = ["calls the function at top[top - index] with nargs and pushes nresults to the stack. ", "&lt;nothing>", "number&lt;index>,  number&lt;nargs>,  number&lt;errfunc>", false];
+			func.luac$getglobal = ["returns the global given", "variant", "string&lt;name>", false, "local stacksave; -- This is required so that the Luau VM can adjust the stack right\nstacksave = luac.getglobal('print')"];
+			func.luac$setglobal = ["sets the global to the last element on the stack", "&lt;nothing>", "string&lt;name>", false, "local stacksave; -- This is required so that the Luau VM can adjust the stack right\nstacksave = luac.pushstring('blabla')\nluac.setglobal('warn')"];
+			func.luac$getfield = ["returns RA[Key]", "variant", "number&lt;ra>,  string&lt;key>", false, "local stacksave; -- This is required so that the Luau VM can adjust the stack right\nstacksave = luac.getglobal('game')\nstacksave = luac.getfield(-1, 'Workspace')"];
+			func.luac$setfield = ["RA[Key] = Value", "&lt;nothing>", "number&lt;ra>, string&lt;key>, variant&lt;value>", false, "local stacksave; -- This is required so that the Luau VM can adjust the stack right\nstacksave = luac.getglobal('game')\nstacksave = luac.getfield(-1, 'Workspace')\nstacksave = luac.pushstring('something')\nluac.setfield(-2, 'Name') -- workspace.Name = 'something'"];
+			func.luac$pushboolean = ["pushes the given value to the top of the stack", "&lt;nothing>", "boolean&lt;value>", false, "local stacksave; -- This is required so that the Luau VM can adjust the stack right\nstacksave = luac.pushboolean(true)"];
+			func.luac$pushstring = ["pushes the given value to the top of the stack", "&lt;nothing>", "string&lt;value>", false, "local stacksave; -- This is required so that the Luau VM can adjust the stack right\nstacksave = luac.pushstring('some string')"];
+			func.luac$pushnumber = ["pushes the given value to the top of the stack", "&lt;nothing>", "number&lt;value>", false, "local stacksave; -- This is required so that the Luau VM can adjust the stack right\nstacksave = luac.pushnumber(15)"];
+			func.luac$pushnil = ["pushes the given value to the top of the stack", "&lt;nothing>", "&lt;nothing>", false, "local stacksave; -- This is required so that the Luau VM can adjust the stack right\nstacksave = luac.pushnil()"];
+			func.luac$pushvalue = ["pushes the value at Top[index] to the very top of the stack", "&lt;nothing>", "int&lt;index>", false, "local stacksave; -- This is required so that the Luau VM can adjust the stack right\nstacksave = luac.pushnil()\nstacksave = luac.getglobal('warn')\nstacksave = luac.pushvalue(-2) -- pushes nil to the top of the stack because its -2 above the current top"];
+			func.luac$pcall = ["calls the function at top[top - index] with nargs and pushes nresults to the stack. ", "&lt;nothing>", "number&lt;index>,  number&lt;nargs>,  number&lt;errfunc>", false, "local stacksave; -- This is required so that the Luau VM can adjust the stack right\nstacksave = luac.getglobal('print')\nstacksave = luac.pushstring('hello world')\nluac.pcall(1, 0, 0)"];
 			
 			func.ss$load = ["loads the module id on the server and passes the given name as its only parameter; Equivalent to ss.execute(\"require(moduleId).load(name)\")", "&lt;nothing>", "number&lt;module id>,  string&lt;name>", false, "ss.load(12345, 'Formabl_e')"];
-			func.ss$execute = ["executes the given code on the server (at identity level 2)", "string; only if compiler error (else nil)", "string&lt;script>", false];
+			func.ss$execute = ["executes the given code on the server (at identity level 2)", "string; only if compiler error (else nil)", "string&lt;script>", false, "ss.execute('print(\"hello server!\")')"];
 			
 			func.sha256$hash = ["returns the SHA-256 hash of the given string", "string&lt;hashed>", "string", false];
 			func.base64$encode = ["returns the base-64 encoded version of the given string", "string", "string", false];
