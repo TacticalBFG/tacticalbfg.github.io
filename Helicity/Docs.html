@@ -139,15 +139,15 @@
 
         <script>
             var func = {};
-			func.iscclosure = ["returns if the function passed is a C defined function.", "boolean", "function", false];
-			func.islclosure = ["returns if the function passed is a lua defined function", "boolean", "function", false];
-			func.newcclosure = ["wraps the function passed in a C-closure and returns the C-closure to be called", "function", "function", false];
-			func.getgenv = ["returns Roblox's global environment table.", "table", "&lt;nothing>", false];
-			func.getrenv = ["returns Roblox's environment table", "table", "&lt;nothing>", false];
-			func.getreg = ["returns Roblox's registry table", "table", "&lt;nothing>", false];
-			func.getgc = ["returns a list of all garbage-collectable objects on the stack", "table", "&lt;nothing>", false];
-			func.httpget = ["returns the raw html of a page (requests are made from the C-side of Helicity)", "string", "string&lt;url>", true];
-			func.loadstring = ["compiles the argument to a function and returns the function to be called", "function", "string&lt;script>", false];
+			func.iscclosure = ["returns if the function passed is a C defined function.", "boolean", "function", false, "warn(iscclosure(print)) -- Prints true because 'print' was defined in c."];
+			func.islclosure = ["returns if the function passed is a lua defined function", "boolean", "function", false, "warn(islclosure(print)) -- Prints false because print isn't a lua-defined function."];
+			func.newcclosure = ["wraps the function passed in a C-closure and returns the C-closure to be called", "function", "function", false, "x = newcclosure(function()\nprint('hello')\nend)\nx()"];
+			func.getgenv = ["returns Roblox's global environment table.", "table", "&lt;nothing>", false, "table.foreach(getgenv(), print)"];
+			func.getrenv = ["returns Roblox's environment table", "table", "&lt;nothing>", false, "table.foreach(getrenv(), print)"];
+			func.getreg = ["returns Roblox's registry table", "table", "&lt;nothing>", false, "table.foreach(getreg(), print)"];
+			func.getgc = ["returns a list of all garbage-collectable objects on the stack", "table", "&lt;nothing>", false, "table.foreach(getgc(), print)"];
+			func.httpget = ["returns the raw html of a page (requests are made from the C-side of Helicity)", "string", "string&lt;url>", true, "google = httpget('https://www.google.com')\nprint(google)"];
+			func.loadstring = ["compiles the argument to a function and returns the function to be called", "function", "string&lt;script>", false, "compiled = loadstring('print(\"hi\")')\ncompiled()"];
 			func.movemouserel = ["moves the cursor relative to its current position (WILL AFFECT OUTSIDE OF ROBLOX)", "&lt;nothing>", "Vector2&lt;dx,dy>", false];
 			func.movemouseabs = ["moves the cursor to the absolute position given on the screen (WILL AFFECT OUTSIDE OF ROBLOX)", "&lt;nothing>", "Vector2&lt;x,y>", false];
 			func.writefile = ["writes to the file (located in Helicity/Workspace) (if no file with the name exists, one will be created; else contents will be overwritten.)", "&lt;nothing>", "string&lt;name>,   string&lt;contents>", false];
@@ -217,7 +217,7 @@
 				 fex.addEventListener("load", function() {
 					setTimeout(function() {
 						if (funcInfo.length > 4) {
-							fex.contentWindow.setScript("hi");
+							fex.contentWindow.setScript(funcInfo[5]);
 						}
 					}, 100);
 				});
