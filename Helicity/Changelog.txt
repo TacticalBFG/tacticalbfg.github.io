@@ -1,3 +1,29 @@
+31/10/2020: Alpha 2.0:
+  * Official re-release of Helicity
+  * Update for Roblox
+  * After so long, Luau support is finally here! (didnt work on it back in April like I should've, so it was heavily delayed)
+Note: some scripts may not fully work for a while because there's still some minor issues with conversion. I provided a way to get around this however (see the bytecode library below)
+  * Still some issues with conversion because I kinda fucked up somewhere when I was writing 5.4 transpiler
+  * Switched to using Lua 5.4
+  * Added extra comound operators and some c-style syntax (+=, -=, *=, /=, %=, ^=, ..=,  &&, ||, !, !=
+  * Added some more lua functions
+  * Implemented full debug library (see features tab for everything)
+  * Rewrote luastate scanner - should be as fast and as stable as I can get it (might still kick because it uses hooks)
+  * Re-did ui;  should be much cleaner, faster, and easier to use.
+  * Re-did SS (not included in alpha 2.0.0)
+  	- SS execution should be many times faster than any SS you've ever seen before (its noticeable btw)
+	- SS shouldn't lag nearly as much if the server's scripts are busy
+	- Allowed for nearly any module to be ran on SS without any conversion needed
+	- Can't log SS remotes anymore (atleast I don't think)
+  * Wrote completely new decompiler. It took many ideas from IDA and tried to apply them to a Roblox script decompiler ( again not included in alpha 2.0.0 due to instabilities)
+  	- Re-name variables: make it easier to read instead of just  local v85 = "hello"
+	- Re-name functions: see above??
+	- View function & event cross-references: see where functions and events are called and their exact calling syntax!
+  	- Syntax highlighting: looks very pretty (?)
+  
+  * Happy Halloween 🎃
+	
+
 3/6/20: Pre-Alpha 2.0.5:
   * Updated for Roblox
   * Roblox changed some stuff around, so pls let me know if any functions crash
@@ -21,54 +47,6 @@
 30/5/20: Pre-Alpha 2.0:
  * Completely rewrote Helicity
  * Luau stuff (see b2.0 cuz official beta will just be fixed pre-alph)
-
-??/?/20: Beta 2.0:
- * Update for Roblox
- * After so long, Luau support is finally here! (didnt work on it back in April like I should've, so it was heavily delayed)
-Note: some scripts may not fully work for a while because there's still some minor issues with conversion. I provided a way to get around this however (see the bytecode library below)
- * Finally re-did the UI to be cleaner, faster, and easier than before.
- * Helicity uses Roblox's new speed optimizations. Your scripts should execute faster!
- * Improvements to math library:
- 	* Added math.log2 (alias math.lb) - returns the binary (base-2) logarithm of arg1.
-	* Added math.e - Returns euler's number (the 2.718 dude)
- * New lua syntax!!!
-	* Now has native support for bitwise and,or,xor,left shift, and right shift (bitwise NOT needs some tinkering)
-	* All the respective tokens for the new syntax can be found in the documentation
-	* Ex: print(14 & 3) will do a bitwise AND to 14, and return 2. (since 14 AND 3 is 2)
-  * Added support for ++, +=, -=, *=, /=, %=, ^=; (no -- cuz thats a comment lol)
-	* Added the ability to index an array at 0 (really just array[0] will return array[1], more for conveinience.)
- * Improvements to obfuscator:
-	* what
- * Added a pretty ok decompiler. (cant decompile large or complex scripts, but should do the job on smaller ones.)
- * Added function getconnections
- * Added function getnamecallmethod
- * Fixed iscclosure
- * Fixed getrenv
- * Fixed getnilinstances
- * Fixed getsenv
- * Added global _WIDTH (gets roblox's screen width, usefor for shortening scripts)
- * Added global _HEIGHT (gets roblox's screen height, useful for shortening scripts)
- * Added debug library:
-	* Added function debug.getupvalues
-	* Added function debug.setupvalue
-	* Added function debug.getaob (see docs)
-	* Added function debug.getconstants (see docs)
- * Added some bytecode functions:
-	* Added function executebytecode (see docs)
-	* Added function getbytecode (see docs)
- * Added clickdetector functions
-	* Added function fireclickdetector (see docs)
-
- * writefile & readfile should be MUCH faster now.
- * Almost every single normal script is now able to be ran on SS without any conversion needed! (see below)
- * Improvements to ss:
-	* Supported (most) stuff from the client
-	aka: you can now run "print(game.Players.LocalPlayer.Name)", or use RunService, and it'll work. try doing that with skidded sses :flush:
-	* Faster execution, like it wasnt fast enough already (jk rerubi fucking slow)
-	* Added DataModel::HttpGet to SS
-	* Added DataModel::GetObjects to SS
- * Cleaned up Helicity's project, should help improve speed.
- * added herobrine
 
 21/8/19: Beta 1.0.5:
  * Update for Roblox
