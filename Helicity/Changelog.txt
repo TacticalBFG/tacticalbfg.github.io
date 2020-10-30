@@ -21,7 +21,7 @@ Note: some scripts may not fully work for a while because there's still some min
 	- View function & event cross-references: see where functions and events are called and their exact calling syntax!
   	- Syntax highlighting: looks very pretty (?)
   
-  * Happy Halloween 🎃
+  * Happy Halloween
 	
 
 3/6/20: Pre-Alpha 2.0.5:
