@@ -1,3 +1,8 @@
+31/10/2020: Alpha 2.01:
+  * Fixed some issues with whitelist
+  * Fixed autoexecute
+  * Added some new preprocessor flags for beta features
+
 31/10/2020: Alpha 2.0:
   * Official re-release of Helicity
   * Update for Roblox
