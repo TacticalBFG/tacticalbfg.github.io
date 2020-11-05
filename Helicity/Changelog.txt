@@ -1,3 +1,13 @@
+5/11/2020: Alpha 2.02:
+  * Update for Roblox
+  * Fixed a ton of scripts - blame a NOP instruction preceeding almost every function :)
+  * Added an experimental new set of functions called "memedit", docs to be released soon
+  * Added dostring because someone triple dog dared me to
+  * Added some new syntax:
+	- Added "continue" statement (i forgot to add before release lol)
+	- Added switch cases but they dont fully work atm, releasing syntax when theyre working fully
+	- Added preprocessors, see docs for use
+
 31/10/2020: Alpha 2.01:
   * Fixed some issues with whitelist
   * Fixed autoexecute
