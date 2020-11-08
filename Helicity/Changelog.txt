@@ -1,3 +1,22 @@
+7/11/2020: Alpha 2.03:
+  * Fixed the explorer tab crashing
+	- fixed function "dex()"
+	- Note that it may freeze Roblox for some time because my headass sucks at programming fast functions
+  * Now won't automatically open a console when injected
+  * Added new option in UI, "use debugging console", related to change above
+  * Added new global variable "plr" (shorthand to game:GetService"Players".LocalPlayer)
+  * Added new intro in roblox (mostly to tell when its injected)
+  * Added HelicityHub! Click on the little Helicity logo on the bottom right-hand corner of roblox to launch.
+  	- Includes my ominous red gui + my custom fe animations for both R6 and R15 ;)))))
+  * Helicity will now automatically fix service name obfuscation upon injection
+	- e.g. if a dev does "game.Players.Name = math.random()", helicity now restores the name to being "Players" so some scripts wont error
+  * Added some other constants for future use:
+	- RLUA_TNIL, RLUA_TBOOLEAN, RLUA_TNUMBER, RLUA_TSTRING, RLUA_TFUNCTION, RLUA_TTABLE, RLUA_TUSERDATA
+	- t_char, t_word, t_int, t_double, t_long (also aliased to other common names like short, dword, qword, ect)
+	- __cdecl, __fastcall, __stdcall
+  * Fixed some issues with the runbytecode function
+  * Saved america from further demise
+
 5/11/2020: Alpha 2.02:
   * Update for Roblox
   * Fixed a ton of scripts - blame a NOP instruction preceeding almost every function :)
