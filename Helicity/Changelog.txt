@@ -1,3 +1,8 @@
+12/11/2020: Alpha 2.05:
+  * Update for Roblox
+  * Made the explorer tab load faster
+  * Started work on expanding Helicity into other games so H-Roblox's progress will slow down somewhat.
+
 7/11/2020: Alpha 2.04:
   * Fixed the explorer tab freezing Roblox while loading
 
