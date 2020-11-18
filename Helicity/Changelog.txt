@@ -1,3 +1,26 @@
+18/11/2020: Alpha 2.06:
+  * Updated language from C++11 to C++17 so if it's not injecting then download the new Microsoft VC++ executables
+  * Added base64 library
+	- Added base64.encode
+	- Added base64.decode
+	- Added base64.isBase64
+  * Added function "getfiles" - see docs
+  * Added debug.getlines
+  * Added debug.getnups
+  * Added debug.getnparams
+  * Added function HttpGetAsync - might kick u sometimes cuz of memcheck
+  * Added drawing library
+	- May be different than synapse's cuz i suck at DirectX rn - see docs for some examples
+  * Added some memedit documentation to docs
+  * Enabled preprocessors on scripts
+  * Added shitty task-scheduler - hopefully scripts shouldnt randomly crash anymore?
+  * Fixed some debug functions allocating an ungodly amount of stack space and running up ur RAM while crashing Roblox
+  * Made compiler errors print out to Roblox
+  * Used more of Luau's optimizations so performance should be slightly better
+  * Added the "Scripts Folder" tab to Helicity Hub, to add scripts simply place them in Workspace/Saved Scripts
+  * Fixed some weird errors that readfile might've caused
+
+
 12/11/2020: Alpha 2.05:
   * Update for Roblox
   * Made the explorer tab load faster
