@@ -95,10 +95,6 @@ define(["require", "exports"], function (require, exports) {
                     }],
                 // whitespace
                 { include: '@whitespace' },
-		 // [[ attributes ]].
-		[/\[\[.*\]\]/, 'annotation'],
-                [/^\s*@include/, { token: 'keyword.directive.include', next: '@include' }],
-		[/^\s*@pragma/, { token: 'keyword.directive.include', next: '@include' }],
                 // keys
                 [/(,)(\s*)([a-zA-Z_]\w*)(\s*)(:)(?!:)/, ['delimiter', '', 'key', '', 'delimiter']],
                 [/({)(\s*)([a-zA-Z_]\w*)(\s*)(:)(?!:)/, ['@brackets', '', 'key', '', 'delimiter']],
@@ -136,10 +132,6 @@ define(["require", "exports"], function (require, exports) {
                         }
                     }],
                 [/./, 'comment']
-            ],
-		include: [
-                [/(\s*)(<)([^<>]*)(>)/, ['', 'keyword.directive.include.begin', 'string.include.identifier', { token: 'keyword.directive.include.end', next: '@pop' }]],
-                [/(\s*)(")([^"]*)(")/, ['', 'keyword.directive.include.begin', 'string.include.identifier', { token: 'keyword.directive.include.end', next: '@pop' }]]
             ],
             string: [
                 [/[^\\"']+/, 'string'],
