@@ -1,3 +1,11 @@
+28/11/2020: Alpha 2.07:
+  * Emergency patch for Roblox's detection string list. They've had it for a few months but holy shit im a slacker
+	- For the most part you should be safe because they didn't directly detect Helicity, and it would've only been detected last week when i added imgui
+  * Made compiler's overflow errors more descriptive; states how much you've overflowed by
+  * Added some more compiler preprocessors ill be finishing soon
+  * Fixed random strings not being random (oops but atleast they werent the raw strings)
+  * Rolled back to C++14 since a lot of people were having trouble with c++17
+
 18/11/2020: Alpha 2.06:
   * Updated language from C++11 to C++17 so if it's not injecting then download the new Microsoft VC++ executables
   * Added base64 library
