@@ -1,3 +1,12 @@
+2/12/2020: Alpha 2.08:
+  * Update for Roblox
+  * Completely rewrote auth, shouldn't give any more annoying "whitelist successful, please restart"
+  * Did a bit more to prevent detection by Roblox
+  * Added decompiler!
+	- May be VERY redundant
+	- May have some innacuracies on bigger scripts (or just straight up freeze on dex sized scripts)
+	- Right now should only be used mostly for getting a general idea of what a script does
+
 28/11/2020: Alpha 2.07:
   * Emergency patch for Roblox's detection string list. They've had it for a few months but holy shit im a slacker
 	- For the most part you should be safe because they didn't directly detect Helicity, and it would've only been detected last week when i added imgui
