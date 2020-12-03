@@ -1,4 +1,4 @@
-2/12/2020: Alpha 2.08:
+3/12/2020: Alpha 2.08:
   * Update for Roblox
   * Completely rewrote auth, shouldn't give any more annoying "whitelist successful, please restart"
   * Did a bit more to prevent detection by Roblox
