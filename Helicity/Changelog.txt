@@ -1,3 +1,8 @@
+4/12/2020: Alpha 2.09:
+  * Fixed some auth issues
+  * Fixed some people crashing right after injection
+  * Made Helicity automatically run the init script from internals so you can't mess it up (as i've seen some dumbasses manage to do)
+
 3/12/2020: Alpha 2.08:
   * Update for Roblox
   * Completely rewrote auth, shouldn't give any more annoying "whitelist successful, please restart"
