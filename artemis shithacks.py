@@ -7,6 +7,11 @@
 
 # Only tested on python 3.8.5 but it should work on most 3.5+ versions of python i think
 
+# NOTE: Made for 1 sensitivity, 90 FOV.  If you have a lower sensitivity, go to the dY variable and multiply it by this amount:  (1/sens)
+# if you have a diff fov suck my dick
+
+# also if u complain i write shitty code suck my dick
+
 import win32api, win32con, win32com.client
 import os
 import time
